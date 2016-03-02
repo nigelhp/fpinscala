@@ -1,3 +1,5 @@
+import scala.annotation.tailrec
+
 /*
  * Exercise: 2.1
  * Write a recursive function to get the nth Fibonacci number.
@@ -10,8 +12,12 @@
 object Exercise2_1 {
 
   def fib(n: Int): Int = {
+    @tailrec
+    def loop(count: Int, nMinus2: Int, nMinus1: Int): Int =
+      if (count == 0) nMinus1
+      else loop(count - 1, nMinus1, nMinus2 + nMinus1)
+
     if (n == 0) 0
-    else if (n == 1) 1
-    else fib(n-1) + fib(n-2)
+    else loop(n - 1, 0, 1)
   }
 }
