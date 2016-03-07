@@ -14,10 +14,9 @@ object Exercise2_1 {
   def fib(n: Int): Int = {
     @tailrec
     def loop(count: Int, nMinus2: Int, nMinus1: Int): Int =
-      if (count == 0) nMinus1
+      if (count == 0) nMinus2
       else loop(count - 1, nMinus1, nMinus2 + nMinus1)
 
-    if (n == 0) 0
-    else loop(n - 1, 0, 1)
+    loop(n, 0, 1)
   }
 }
