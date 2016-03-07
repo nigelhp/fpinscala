@@ -8,5 +8,5 @@
 object Exercise2_4 {
 
   def uncurry[A,B,C](f: A => (B => C)): (A, B) => C =
-    (a: A, b: B) => {val g = f(a); g(b)}
+    (a: A, b: B) => f(a)(b)
 }
