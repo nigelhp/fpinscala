@@ -8,7 +8,7 @@ import fpinscala.datastructures._
 object Exercise3_3 {
 
   def setHead[A](head: A, list: List[A]): List[A] = list match {
-    case Nil => Cons(head, Nil)
+    case Nil => Nil
     case Cons(_, t) => Cons(head, t)  
   }
 }

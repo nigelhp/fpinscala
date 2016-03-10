@@ -10,7 +10,7 @@ class Exercise3_3Spec extends FlatSpec {
     assert(setHead(9, List(1)) === List(9))
   }
 
-  it should "change the head of an empty list" in {
-    assert(setHead(9, Nil) === List(9))
+  it should "not replace the first element of an empty list" in {
+    assert(setHead(9, Nil) === Nil)
   }
 }
