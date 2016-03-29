@@ -32,6 +32,6 @@ object Exercise3_7 {
 
 /*
  * Product, when implemented via foldRight, cannot immediately halt the recursion if it encounters a 0.0 value.
- * foldRight is not tail-recursive, and so halting the computation still requires any outstanding stack frames
- * to be unwound.
+ * The recursive nature of foldRight means that the entire list is traversed as foldRight evaluates its arguments,
+ * before the function supplied by product is ever invoked.
  */
