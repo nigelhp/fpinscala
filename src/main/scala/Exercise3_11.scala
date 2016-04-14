@@ -7,9 +7,9 @@ import Exercise3_10.foldLeft
  */
 object Exercise3_11 {
 
-  def sum(list: List[Int]): Int = foldLeft(list, 0)((acc, e) => acc + e)
+  def sum(list: List[Int]): Int = foldLeft(list, 0)(_ + _)
 
-  def product(list: List[Int]): Int = foldLeft(list, 1)((acc, e) => acc * e)
+  def product(list: List[Int]): Int = foldLeft(list, 1)(_ * _)
 
   def length[A](list: List[A]): Int = foldLeft(list, 0)((acc, _) => acc + 1)
 }
