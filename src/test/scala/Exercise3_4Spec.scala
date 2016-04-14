@@ -26,7 +26,7 @@ class Exercise3_4Spec extends FlatSpec {
   }
 
   "drop 0" should "return the empty list when the list is empty" in {
-    assert(drop(Nil, 0) == Nil)
+    assert(drop(Nil, 0) === Nil)
   }
 
   "drop 1" should "return the empty list when the list is empty" in {

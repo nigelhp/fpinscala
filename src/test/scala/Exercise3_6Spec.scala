@@ -18,10 +18,10 @@ class Exercise3_6Spec extends FlatSpec {
   }
 
   it should "return only the first two elements when the input list contains three elements" in {
-    assert(init(List(1, 2, 3)) == List(1, 2))
+    assert(init(List(1, 2, 3)) === List(1, 2))
   }
 
   it should "return all but the last element when the input list contains many elements" in {
-    assert(init(List(1, 2, 3, 4, 5)) == List(1, 2, 3, 4))
+    assert(init(List(1, 2, 3, 4, 5)) === List(1, 2, 3, 4))
   }
 }
