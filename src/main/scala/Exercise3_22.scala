@@ -16,7 +16,7 @@ object Exercise3_22 {
 //      }
 //    }
 //  }
-  
+
   // introducing a pair, and pattern-matching on that results in a cleaner approach than nested pattern matches (above)
   def zipAdd(xs: List[Int], ys: List[Int]): List[Int] = (xs, ys) match {
     case (Nil, _) => Nil
