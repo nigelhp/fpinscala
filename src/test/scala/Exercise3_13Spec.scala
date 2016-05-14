@@ -1,7 +1,7 @@
 import org.scalatest.FlatSpec
 
 import fpinscala.datastructures._
-import Exercise3_13.{foldLeft, foldRight}
+import Exercise3_13.{foldLeft, foldRight, foldRightViaFoldLeft}
 
 class Exercise3_13Spec extends FlatSpec {
 
@@ -57,5 +57,35 @@ class Exercise3_13Spec extends FlatSpec {
 
     assert(foldRight(List(2, 3, 4), ("", 1))((i, acc) => {(acc._1 + s"($i+${acc._2})", i + acc._2)}) ===
       ("(4+1)(3+5)(2+8)", 10))
+  }
+
+  "foldRightViaFoldLeft" should "return the seed value when the input list is empty" in {
+    assert(foldRightViaFoldLeft(nil, 10)((i, acc) => 666) === 10)
+  }
+
+  it should "combine the seed value with the elements of the input list" in {
+    assert(foldRightViaFoldLeft(List(1), 10)(_ + _) === 11)
+  }
+
+  it should "support calculating the sum of all the elements of the input list" in {
+    assert(foldRightViaFoldLeft(nil, 0)(_ + _) === 0)
+    assert(foldRightViaFoldLeft(List(1, 2, 3, 4, 5), 0)(_ + _) === 15)
+  }
+
+  it should "support calculating the product of all the elements of the input list" in {
+    assert(foldRightViaFoldLeft(nil, 1)(_ * _) === 1)
+    assert(foldRightViaFoldLeft(List(1, 2, 3, 4, 5), 1)(_ * _) === 120)
+  }
+
+  it should "traverse from right to left" in {
+    assert(foldRightViaFoldLeft(List(1), 10)(_ - _) === -9)
+    assert(foldRightViaFoldLeft(List(1, 2, 3, 4, 5), 0)(_ - _) === 3)
+
+    assert(foldRightViaFoldLeft(List(2, 3, 4), ("", 1))((i, acc) => {(acc._1 + s"($i+${acc._2})", i + acc._2)}) ===
+      ("(4+1)(3+5)(2+8)", 10))
+  }
+
+  it should "blah" in {
+    assert(foldRightViaFoldLeft(Nil: List[Int], 1)(_ - _) === 1)
   }
 }
