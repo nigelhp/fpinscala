@@ -12,7 +12,6 @@ import Exercise4_3.map2
  * Here is its signature:
  *   def sequence[A](a: List[Option[A]]): Option[List[A]]
  */
-
 object Exercise4_4 {
   // low-level pattern matching on the list
   def sequence1[A](a: List[Option[A]]): Option[List[A]] = a match {
@@ -22,6 +21,7 @@ object Exercise4_4 {
     })
   }
 
+  // higher-order functional approach (note reliance on exercise 4.3's map2)
   def sequence2[A](a: List[Option[A]]): Option[List[A]] = {
     val initial: Option[List[A]] = Some(Nil)
     a.foldRight(initial) { (opt, acc) => map2(opt, acc) { _ :: _ } }
