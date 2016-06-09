@@ -1,6 +1,6 @@
 package com.github.nigelhp.fpinscala
 
-import exercise4_1.{Option, Some, None}
+import exercise4_1.Option
 
 /*
  * Exercise 4.3
