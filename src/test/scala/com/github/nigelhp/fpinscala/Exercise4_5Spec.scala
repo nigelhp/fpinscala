@@ -66,4 +66,24 @@ class Exercise4_5Spec extends FlatSpec {
   it should "return None when f(x) returns Some but f(y) returns None" in {
     assert(traverse3(List(42, -42)) { n => if (n.signum > 0) Some(n.toString) else None } === None)
   }
+
+  "sequenceViaTraverse" should "return Some(Nil) when the input list is Nil" in {
+    assert(sequenceViaTraverse(Nil) === Some(Nil))
+  }
+
+  it should "return Some(List(x)) when the input list is List(Some(x))" in {
+    assert(sequenceViaTraverse(List(Some(42))) === Some(List(42)))
+  }
+
+  it should "return None when the input list is List(None)" in {
+    assert(sequenceViaTraverse(List(None)) === None)
+  }
+
+  it should "return Some(List(x, y)) when the input list is List(Some(x), Some(y))" in {
+    assert(sequenceViaTraverse(List(Some(42), Some(666))) === Some(List(42, 666)))
+  }
+
+  it should "return None when the input list is List(Some(x), None, Some(y))" in {
+    assert(sequenceViaTraverse(List(Some(42), None, Some(666))) === None)
+  }
 }

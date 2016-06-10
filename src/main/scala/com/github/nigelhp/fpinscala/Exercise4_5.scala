@@ -29,4 +29,8 @@ object Exercise4_5 {
     val initial: Option[List[B]] = Some(Nil)
     a.foldRight(initial) { (value, acc) => map2(f(value), acc) { _ :: _ } }
   }
+
+  def sequenceViaTraverse[A](a: List[Option[A]]): Option[List[A]] = {
+    traverse3(a)(b => b)
+  }
 }
