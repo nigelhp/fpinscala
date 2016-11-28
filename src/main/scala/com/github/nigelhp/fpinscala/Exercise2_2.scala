@@ -10,17 +10,13 @@ import scala.annotation.tailrec
  * def isSorted[A](as: Array[A], ordered: (A,A) => Boolean): Boolean
  */
 object Exercise2_2 {
-
-  def isSorted[A](as: Array[A], ordered: (A,A) => Boolean): Boolean = {
+  def isSorted[A](as: Array[A], ordered: (A, A) => Boolean): Boolean = {
     @tailrec
-    def loop(a: A, remaining: Array[A]): Boolean = {
-      if (remaining.isEmpty) true
-      else if (ordered(a, remaining.head))
-        loop(remaining.head, remaining.tail)
+    def loop(n: Int): Boolean =
+      if (n + 1 >= as.length) true
+      else if (ordered(as(n), as(n + 1))) loop(n + 1)
       else false
-    }
 
-    if (as.isEmpty) true
-    else loop(as.head, as.tail)
+    loop(0)
   }
 }
