@@ -12,7 +12,6 @@ import scala.annotation.tailrec
  * def fib(n: Int): Int
  */
 object Exercise2_1 {
-
   def fib(n: Int): Int = {
     @tailrec
     def loop(count: Int, nMinus2: Int, nMinus1: Int): Int =

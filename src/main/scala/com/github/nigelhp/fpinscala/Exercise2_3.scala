@@ -9,7 +9,6 @@ package com.github.nigelhp.fpinscala
  * def curry[A,B,C](f: (A, B) => C): A => (B => C)
  */
 object Exercise2_3 {
-
   /*
    * Takes a value and a function of two arguments, and returns a function of one argument.
    */
