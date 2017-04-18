@@ -10,4 +10,13 @@ import fpinscala.laziness._
 object Exercise5_12 {
   def fibs: Stream[Int] =
     unfold((0, 1))(s => Some(s._1, (s._2, s._1 + s._2)))
+
+  def from(n: Int): Stream[Int] =
+    unfold(n)(s => Some(s, s + 1))
+
+  def constant[A](a: A): Stream[A] =
+    unfold(a)(_ => Some(a, a))
+
+  def ones: Stream[Int] =
+    unfold(1)(s => Some(s, s))
 }
