@@ -7,7 +7,7 @@ import fpinscala.laziness._
  * match the given predicate.
  */
 object Exercise5_3 {
-  def takeWhile[A](stream: Stream[A])(p: A => Boolean) : Stream[A] =
+  def takeWhile[A](stream: Stream[A])(p: A => Boolean): Stream[A] =
     stream match {
       case Cons(h, t) if p(h()) => Stream.cons(h(), takeWhile(t())(p))
       case _ => Stream.empty
