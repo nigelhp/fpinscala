@@ -53,7 +53,7 @@ object Exercise6_11 {
     import Machine._
 
     State(machine => {
-      val endMachine = inputs.reverse.foldRight(machine) { (input, acc) =>
+      val endMachine = inputs.foldLeft(machine) { (acc, input) =>
         input match {
           case Coin => acc match {
             case m @ Machine(locked, _, _) if locked && nonEmpty(m) => acceptCoin(m)
