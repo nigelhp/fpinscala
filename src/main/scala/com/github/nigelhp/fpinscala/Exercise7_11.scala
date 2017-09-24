@@ -1,7 +1,7 @@
 package com.github.nigelhp.fpinscala
 
 import fpinscala.parallelism.Par
-import fpinscala.parallelism.Par._
+import fpinscala.parallelism.Par.Par
 
 /*
  * Exercise 7.11
