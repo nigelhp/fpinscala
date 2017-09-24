@@ -35,4 +35,7 @@ object Par {
 
   def lazyUnit[A](a: => A): Par[A] =
     fork(unit(a))
+
+  def run[A](s: ExecutorService)(a: Par[A]): Future[A] =
+    a(s)
 }

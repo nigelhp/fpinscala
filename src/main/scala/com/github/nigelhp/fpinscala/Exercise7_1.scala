@@ -2,7 +2,7 @@ package com.github.nigelhp.fpinscala
 
 /*
  * Exercise 7.1
- * Par.map2 is a new higher -order function for combining the result of two parallel
+ * Par.map2 is a new higher-order function for combining the result of two parallel
  * computations.  What is its signature?  Give the most general signature possible
  * (don't assume it works only for Int).
  */
