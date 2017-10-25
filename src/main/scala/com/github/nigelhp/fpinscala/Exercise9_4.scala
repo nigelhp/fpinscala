@@ -1,12 +1,14 @@
 package com.github.nigelhp.fpinscala
 
+import fpinscala.parsers.Parsers
+
 import scala.language.higherKinds
 
 /*
  * Exercise 9.4
  * Using map2 and succeed, implement the listOfN combinator.
  */
-trait Exercise9_4[ParseError, Parser[+_]] extends Exercise9_1[ParseError, Parser] {
+trait Exercise9_4[ParseError, Parser[+_]] extends Parsers[ParseError, Parser] {
 
   override def listOfN[A](n: Int, p: Parser[A]): Parser[List[A]] = {
     require (n >= 0)
