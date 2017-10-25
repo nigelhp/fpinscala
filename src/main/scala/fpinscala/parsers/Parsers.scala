@@ -9,7 +9,7 @@ trait Parsers[ParseError, Parser[+_]] { self =>
   def string(s: String): Parser[String]
   def listOfN[A](n: Int, p: Parser[A]): Parser[List[A]]
 
-  def or[A](s1: Parser[A], s2: Parser[A]): Parser[A]
+  def or[A](p: Parser[A], p2: => Parser[A]): Parser[A]
   def many[A](p: Parser[A]): Parser[List[A]]
   def map[A,B](a: Parser[A])(f: A => B): Parser[B]
 
