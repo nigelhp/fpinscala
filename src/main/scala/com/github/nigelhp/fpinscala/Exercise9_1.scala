@@ -16,6 +16,6 @@ trait Exercise9_1[ParseError, Parser[+_]] extends Parsers[ParseError, Parser] {
     map(parser)(f.tupled)
   }
 
-  def many1[A](p: Parser[A]): Parser[List[A]] =
+  override def many1[A](p: Parser[A]): Parser[List[A]] =
     map2(p, many(p)) { (a, manyA) => a :: manyA }
 }
