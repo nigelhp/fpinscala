@@ -1,6 +1,7 @@
 package fpinscala.parsers
 
 import scala.language.higherKinds
+import scala.util.matching.Regex
 
 trait Parsers[ParseError, Parser[+_]] { self =>
   def run[A](p: Parser[A])(input: String): Either[ParseError, A]
@@ -20,4 +21,7 @@ trait Parsers[ParseError, Parser[+_]] { self =>
 
   def succeed[A](a: A): Parser[A] =
     map(string(""))(_ => a)
+
+  def regex(r: Regex): Parser[String]
+  def flatMap[A,B](p: Parser[A])(f: A => Parser[B]): Parser[B]
 }
