@@ -1,6 +1,9 @@
 package fpinscala.property
 
-trait Gen[A] {}
+trait Gen[A] {
+  def map[B](f: A => B): Gen[B]
+  def flatMap[B](f: A => Gen[B]): Gen[B]
+}
 
 object Gen {
   def listOf[A](a: Gen[A]): Gen[List[A]] = ???
