@@ -2,6 +2,8 @@ package com.github.nigelhp.fpinscala
 
 import fpinscala.monads.Monad
 
+import scala.language.higherKinds
+
 /*
  * Exercise 11.6
  * Implement the function filterM.
