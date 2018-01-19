@@ -2,7 +2,7 @@ name := "fpinscala"
 
 version := "1.0"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.12.4"
 scalacOptions += "-feature"
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.6" % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.4" % "test"
